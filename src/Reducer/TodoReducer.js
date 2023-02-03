@@ -26,13 +26,14 @@ function  todosReducer (todos,action){
                     
                     return {
                         ...done,
-                    isCompleted: !done.isCompleted};
+                  };
                 }
             })
         }
 
         case "TODO_DELETED": {
             return todos.filter(t => t.id !== action.id)
+      
         }
         default:{
             throw Error("Not Found: " + action.type)

@@ -28,4 +28,4 @@ function AddTodo() {
 }
 
 export default AddTodo
-let nextId=4
+let nextId=1
