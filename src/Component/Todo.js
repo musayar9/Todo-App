@@ -7,16 +7,26 @@ function Todo({todo}) {
     const dispatch = useDispatchTodos()
 
 
+   
+
     const handleClick = () => {
      setIsActive(todo.status)
+     let date = new Date()
+     let day = date.getHours()
+     let minute = date.getMinutes()
+     let second= date.getSeconds()
+        console.log(day, minute,  second);
+        console.log(minute )
+ 
+
     }
 
     let todoContent;
 
     if(isChange){
         todoContent=(
-            <>
-            <input value={todo.text} onChange={(e)=>dispatch({
+            <form className="space-x-4 inline">
+            <input className="outline-none border border-gray-500 text-center p-1 rounded-lg" value={todo.text} onChange={(e)=>dispatch({
                 type:"TODO_EDIT",
                 todo:{
                     ...todo,
@@ -24,23 +34,24 @@ function Todo({todo}) {
                 }
             })}/>
             
-            <button onClick={()=>setIsChange(false)} >Save Todo</button>
-            </>
+            <button  className="" onClick={()=>setIsChange(false)} >Save Todo</button>
+            </form>
         )
     }else{
         todoContent=(
-            <>
-            {todo.text}
-               <button onClick={()=>setIsChange(true)} >edit Todo</button>
-            </>
+            <span className="inline items-center justify-between">
+          <span className="mr-12 "> {todo.text}</span> 
+               <button className="ml-12" onClick={()=>setIsChange(true)} >edit Todo</button>
+            </span>
         )
     }
   
 
 
   return (
-    <div>
-      <input type="checkbox" checked={todo.status} onClick={handleClick} onChange={e=>{dispatch({
+
+    <div className="flex items-center justify-between  ">
+      <input type="checkbox" className="flex-shrink-0 w-8 h-8 rounded-xl" checked={todo.status} onClick={handleClick} onChange={e=>{dispatch({
         type:"TODO_STATUS",
         todo:{
           ...todo,
@@ -48,20 +59,26 @@ function Todo({todo}) {
         }
        
       })}}/>
-    <label className={`${!isActive ? 'text-decoration-line-through' : ""}`} > {todoContent}</label>
+
+
+    <label className={`${!isActive ? 'line-through' : ""}`} >
+      <span className="flex-shrink-0">{todoContent} </span>
+       
+       
+       
+       </label>
       
-
-
-     
+  
+    
   
 
-
-      <button onClick={()=>{
+    <button className="flex-shrink-0" onClick={()=>{
         dispatch({
             type:"TODO_DELETED",
             id:todo.id
         })
       }}>Deleted</button>
+
 
 </div>
   

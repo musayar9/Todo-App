@@ -8,9 +8,9 @@ import React from 'react'
 function TodoList() {
     const todos = useTodos()
   return (
-    <ul>
+    <ul className=" place-items-center space-y-2 p-4">
       {todos.map(todo=>(
-        <li key={todo.id}>
+        <li className="border border-gray-400 bg-red-400 p-3 rounded-lg  w-98" key={todo.id}>
             <Todo todo={todo}/>
         </li>
       ))}
