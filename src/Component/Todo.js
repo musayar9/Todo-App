@@ -2,13 +2,15 @@ import React from 'react'
 import {useDispatchTodos } from './TodoProvider'
 import {useState} from 'react'
 function Todo({todo}) {
+    const  [isActive, setIsActive]=useState(true)
     const [isChange, setIsChange] = useState(false)
-    const  [isActive, setIsActive]=useState(false)
     const dispatch = useDispatchTodos()
 
-    const handleClick = () =>{
-      setIsActive(done =>!done)
+
+    const handleClick = () => {
+     setIsActive(todo.status)
     }
+
     let todoContent;
 
     if(isChange){
@@ -33,10 +35,12 @@ function Todo({todo}) {
             </>
         )
     }
+  
+
 
   return (
-    <label>
-      <input type="checkbox" checked={todo.status}  onChange={e=>{dispatch({
+    <div>
+      <input type="checkbox" checked={todo.status} onClick={handleClick} onChange={e=>{dispatch({
         type:"TODO_STATUS",
         todo:{
           ...todo,
@@ -44,9 +48,13 @@ function Todo({todo}) {
         }
        
       })}}/>
+    <label className={`${!isActive ? 'text-decoration-line-through' : ""}`} > {todoContent}</label>
+      
+
+
      
-     
-      {todoContent}
+  
+
 
       <button onClick={()=>{
         dispatch({
@@ -55,8 +63,8 @@ function Todo({todo}) {
         })
       }}>Deleted</button>
 
-
-    </label>
+</div>
+  
   )
 }
 

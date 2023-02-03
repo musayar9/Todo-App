@@ -23,7 +23,10 @@ function  todosReducer (todos,action){
                 if(done.id === action.todo.id){
                     return action.todo
                 }else{
-                    return done;
+                    
+                    return {
+                        ...done,
+                    isCompleted: !done.isCompleted};
                 }
             })
         }
