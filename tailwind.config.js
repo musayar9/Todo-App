@@ -13,6 +13,10 @@ module.exports = {
         '98': "45rem",
         "120": "60rem"
       
+      },
+
+      screens:{
+        'phone': '375px'
       }
     },
   },
