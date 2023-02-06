@@ -51,7 +51,7 @@ function Todo({todo}) {
 
   return (
 
-    <div className="flex items-center justify-between ">
+    <div className="flex items-center justify-between">
 
          
 <div className='flex items-center justify-center space-x-1 md:space-x-4'>
