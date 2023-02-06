@@ -1011,6 +1011,10 @@ video {
 }
 
 @media (min-width: 768px) {
+  .md\:m-0 {
+    margin: 0px;
+  }
+
   .md\:mt-16 {
     margin-top: 4rem;
   }
@@ -1033,6 +1037,10 @@ video {
 
   .md\:mr-0 {
     margin-right: 0px;
+  }
+
+  .md\:ml-0 {
+    margin-left: 0px;
   }
 
   .md\:h-8 {
