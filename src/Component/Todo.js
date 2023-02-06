@@ -32,7 +32,7 @@ function Todo({todo}) {
        
         <form className="space-x-3 md:space-x-6  flex items-center">
              <button className='shrink-0 mr-3 border border-gray-500   bg-blue-800   hover:bg-blue-600 text-white hover:text-black font-bold px-2 sm:px-4 md:px-6 py-2 rounded-xl text-capitalize'  onClick={()=>setIsChange(false)} ><IoIosSave size={26}/></button>
-        <input className="outline-none border border-gray-500 text-center rounded-lg w-56 md:w-75 p-1" value={todo.text} onChange={(e)=>dispatch({
+        <input className="outline-none border border-gray-500 text-center rounded-lg w-56 md:w-72 p-1" value={todo.text} onChange={(e)=>dispatch({
             type:"TODO_EDIT",
             todo:{
                 ...todo,
@@ -55,7 +55,7 @@ function Todo({todo}) {
 
          
 <div className='flex items-center justify-center space-x-1 md:space-x-4'>
-<button className="shrink-0 border text-white border-gray-500 px-2 sm:px-4 md:px-6 py-2 bg-red-700 hover:bg-red-500 rounded-xl mr-1 md:mr-3" onClick={()=>{
+<button className=" border text-white border-gray-500 px-4  py-2 bg-red-700 hover:bg-red-500 rounded-xl mr-1 md:mr-3" onClick={()=>{
         dispatch({
             type:"TODO_DELETED",
             id:todo.id
