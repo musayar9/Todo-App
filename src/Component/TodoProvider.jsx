@@ -22,10 +22,4 @@ export function  TodoProvider ({children}){
 export const useTodos = () => useContext(TodoContext);
 export const useDispatchTodos = () =>useContext(TodoDispatchContext)
 
-const initialTasks = [
-    // {id:0, text:'Learn React JS', status:false},
-    // {id:1, text:'Wake up 8:30pm', status:false},
-    // {id:2, text:'Drive car', status:false},
-    // {id:3, text:'Go cinema', status:false},
-
-]
+const initialTasks = []
